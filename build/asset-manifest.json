@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4545ec98.css",
+    "main.js": "/static/js/main.74893b8a.js",
+    "static/media/tedx-logo-white.png": "/static/media/tedx-logo-white.27007d7b88937268f0fa.png",
+    "index.html": "/index.html",
+    "main.4545ec98.css.map": "/static/css/main.4545ec98.css.map",
+    "main.74893b8a.js.map": "/static/js/main.74893b8a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4545ec98.css",
+    "static/js/main.74893b8a.js"
+  ]
+}

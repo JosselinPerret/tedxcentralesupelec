@@ -1,0 +1,47 @@
+name: Build & Deploy to o2switch
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+            node-version: "20"
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      # Option SFTP (sécurisé) via scp-action
+      - name: Upload build/ via SFTP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USER }}
+          password: ${{ secrets.SFTP_PASS }}
+          port: ${{ secrets.SFTP_PORT || 22 }}
+          source: "build/*"
+          target: "/home/ivwu8802/tedxcentralesupelec.com/"
+          strip_components: 1
+
+      # Si tu préfères FTP pur (au lieu de SFTP), commente l'étape ci-dessus et
+      # décommente celle-ci (nécessite un compte FTP actif côté o2switch) :
+      # - name: Upload via FTP
+      #   uses: SamKirkland/FTP-Deploy-Action@v4
+      #   with:
+      #     server: ${{ secrets.SFTP_HOST }}
+      #     username: ${{ secrets.SFTP_USER }}
+      #     password: ${{ secrets.SFTP_PASS }}
+      #     local-dir: build/
+      #     server-dir: /home/ivwu8802/tedxcentralesupelec.com/

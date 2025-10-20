@@ -1,6 +1,13 @@
 import React from 'react';
 import GradientBlinds from './components/GradientBlinds';
 import CardNav from './components/CardNav';
+import { Routes, Route } from 'react-router-dom';
+import Conferenciers from './pages/Conferenciers';
+import DevenirSpeaker from './pages/DevenirSpeaker';
+import Planning from './pages/Planning';
+import Informations from './pages/Informations';
+import Acheter from './pages/Acheter';
+import Tarifs from './pages/Tarifs';
 import tedxLogo from './tedx-logo-white.png';
 import './App.css';
 
@@ -11,8 +18,8 @@ function App() {
       bgColor: "rgba(230, 43, 30, 0.9)",
       textColor: "#fff",
       links: [
-        { label: "Conférenciers", ariaLabel: "Nos conférenciers" },
-        { label: "Biographies", ariaLabel: "Biographies des speakers" }
+        { label: "Conférenciers", ariaLabel: "Nos conférenciers", href: "/conferenciers" },
+        { label: "Devenir speaker", ariaLabel: "Devenir speaker", href: "/devenir-speaker" }
       ]
     },
     {
@@ -20,8 +27,8 @@ function App() {
       bgColor: "rgba(196, 30, 58, 0.9)",
       textColor: "#fff",
       links: [
-        { label: "Planning", ariaLabel: "Planning de l'événement" },
-        { label: "Sessions", ariaLabel: "Sessions détaillées" }
+        { label: "Planning", ariaLabel: "Planning de l'événement", href: "/planning" },
+        { label: "Informations", ariaLabel: "Informations sur l'événement", href: "/informations" }
       ]
     },
     {
@@ -29,8 +36,8 @@ function App() {
       bgColor: "rgba(179, 77, 77, 0.9)", 
       textColor: "#fff",
       links: [
-        { label: "Acheter", ariaLabel: "Acheter des billets" },
-        { label: "Tarifs", ariaLabel: "Tarifs des billets" }
+        { label: "Acheter", ariaLabel: "Acheter des billets", href: "/acheter" },
+        { label: "Tarifs", ariaLabel: "Tarifs des billets", href: "/tarifs" }
       ]
     }
   ];
@@ -66,30 +73,33 @@ function App() {
       </div>
       
       <div className="app-content">
-        <header className="app-header">
-          <h1 className="tedx-title">
-            <span className="tedx-red">TED</span>
-            <span className="tedx-x">x</span>
-            <span className="tedx-university">CentraleSupélec</span>
-          </h1>
-          <p className="tagline">L'effet tunnel</p>
-        </header>
-        
         <main className="app-main">
-          <section className="hero-section">
-            <h2 className="hero-title">Bienvenue sur le site de TEDx Centralesupelec</h2>
-            <p className="hero-description">
-              Rejoignez-nous pour un jour inspirant de conférences, d'idées et d'innovation. 
-              Découvrez le pouvoir des idées qui peuvent changer le monde.
-            </p>
-            <div className="cta-buttons">
-              <button className="btn btn-primary">Les speakers</button>
-              <button className="btn btn-secondary">Billetterie</button>
-            </div>
-          </section>
-          
+          <Routes>
+            <Route
+              path="/"
+              element={(
+                <section className="hero-section">
+                  <h2 className="hero-title">Bienvenue sur le site de TEDx Centralesupelec</h2>
+                  <p className="hero-description">
+                    Rejoignez-nous pour un jour inspirant de conférences, d'idées et d'innovation. 
+                    Découvrez le pouvoir des idées qui peuvent changer le monde.
+                  </p>
+                  <div className="cta-buttons">
+                    <a className="btn btn-primary" href="/conferenciers">Speakers</a>
+                    <a className="btn btn-secondary" href="/acheter">Billetterie</a>
+                  </div>
+                </section>
+              )}
+            />
+            <Route path="/conferenciers" element={<Conferenciers />} />
+            <Route path="/devenir-speaker" element={<DevenirSpeaker />} />
+            <Route path="/planning" element={<Planning />} />
+            <Route path="/informations" element={<Informations />} />
+            <Route path="/acheter" element={<Acheter />} />
+            <Route path="/tarifs" element={<Tarifs />} />
+          </Routes>
         </main>
-        
+
         <footer className="app-footer">
           <p>&copy; 2025 TEDx Centralesupelec. Cet événement TEDx indépendant est opéré sous licence de TED.</p>
         </footer>
