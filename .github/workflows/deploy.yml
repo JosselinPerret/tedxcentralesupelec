@@ -2,38 +2,44 @@ name: Build & Deploy via FTP to o2switch
 
 on:
   push:
-    branches: [ "main" ]
-  workflow_dispatch:
+    branches: [ "main" ]      # déploie à chaque push sur main
+  workflow_dispatch:           # permet de le lancer manuellement
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      # 1️⃣ Récupère ton code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      # 2️⃣ Installe Node.js 20
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
-      - name: Install & Build
+      # 3️⃣ Installe les dépendances et build la version de prod
+      - name: Install dependencies and build
         run: |
           npm ci
           npm run build
 
-      - name: Upload via FTP
+      # 4️⃣ Déploie les fichiers buildés via FTP
+      - name: Deploy to o2switch via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_HOST }}          # ex: loutre.o2switch.net
-          username: ${{ secrets.FTP_USER }}        # ex: deploy@tedxcentralesupelec.com
+          server: ${{ secrets.FTP_HOST }}       # ex: loutre.o2switch.net
+          username: ${{ secrets.FTP_USER }}     # ex: deploy@tedxcentralesupelec.com
           password: ${{ secrets.FTP_PASS }}
           protocol: ftp
           port: 21
-          local-dir: build/
-          server-dir: /home/ivwu8802/tedxcentralesupelec.com/
-          exclude: |
+          local-dir: build/                     # ton dossier généré par npm run build
+          server-dir: /                         # racine du compte FTP (=/home/ivwu8802/tedxcentralesupelec.com)
+          exclude: |                            # ne pas supprimer ces fichiers
             **/.git*
-            **/.git*/**
             **/.github/**
-            .htaccess                              # ← ne jamais écraser
+            .htaccess
+          dangerous-clean-slate: true           # vide le dossier avant chaque déploiement
+          log-level: verbose                    # utile pour le debug
