@@ -15,7 +15,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Install & Build
         run: |
@@ -23,14 +23,17 @@ jobs:
           npm run build
 
       - name: Upload via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
+          server: ${{ secrets.FTP_HOST }}          # ex: loutre.o2switch.net
+          username: ${{ secrets.FTP_USER }}        # ex: deploy@tedxcentralesupelec.com
           password: ${{ secrets.FTP_PASS }}
           protocol: ftp
           port: 21
           local-dir: build/
           server-dir: /home/ivwu8802/tedxcentralesupelec.com/
-          # Optionnel :
-          log-level: verbose
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            .htaccess                              # ← ne jamais écraser
