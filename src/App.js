@@ -43,7 +43,8 @@ function App() {
     }
   ];
 
-  const isTarifs = location.pathname === '/tarifs';
+  const isHome = location.pathname === '/';
+  const hasBlackBackground = !isHome;
 
   return (
     <div className="app">
@@ -57,7 +58,7 @@ function App() {
         buttonTextColor="#fff"
         ease="power3.out"
       />
-      {!isTarifs ? (
+      {!hasBlackBackground ? (
         <div className="background-container">
           <GradientBlinds
             gradientColors={['#b34d4d', '#db0a0a']}
