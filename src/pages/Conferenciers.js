@@ -55,9 +55,9 @@ const Conferenciers = () => {
   ];
 
   return (
-    <div style={{ padding: 24 }}>
-      <h1 style={{ color: 'white', marginBottom: '2rem' }}>Conférenciers</h1>
-      <div style={{ height: '800px', position: 'relative', pointerEvents: 'auto' }}>
+    <div className="conferenciers-page">
+      <h1 className="conferenciers-title">Conférenciers</h1>
+      <div className="conferenciers-grid-container">
         <ChromaGrid 
           items={speakers}
           radius={300}
