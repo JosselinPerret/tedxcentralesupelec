@@ -1,13 +1,27 @@
-# Évite qu'Apache confonde des URLs avec MultiViews
-Options -MultiViews
-
+# --- SPA rewrite rules ---
 RewriteEngine On
-RewriteBase /
 
-# Laisse passer les vrais fichiers/dossiers (images, js, css…)
+# Serve existing files/folders as-is
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# Tout le reste → index.html (React gère la route)
+# Redirect all other routes to index.html
 RewriteRule . /index.html [L]
+
+# --- Optional optimizations ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/plain text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresDefault "access plus 1 hour"
+</IfModule>
+
+Options -Indexes
