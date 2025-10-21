@@ -132,6 +132,25 @@ const CardNav = ({
     if (el) cardsRef.current[i] = el;
   };
 
+  const handleLinkClick = (href, e) => {
+    e.preventDefault();
+    
+    // Close the menu when a link is clicked
+    if (isExpanded) {
+      const tl = tlRef.current;
+      if (!tl) return;
+      
+      setIsHamburgerOpen(false);
+      tl.eventCallback('onReverseComplete', () => {
+        setIsExpanded(false);
+        navigate(href);
+      });
+      tl.reverse();
+    } else {
+      navigate(href);
+    }
+  };
+
   return (
     <div className={`card-nav-container ${className}`}>
       <nav ref={navRef} className={`card-nav ${isExpanded ? 'open' : ''}`} style={{ backgroundColor: baseColor }}>
@@ -173,10 +192,16 @@ const CardNav = ({
               <div className="nav-card-label">{item.label}</div>
               <div className="nav-card-links">
                 {item.links?.map((lnk, i) => (
-                  <Link key={`${lnk.label}-${i}`} className="nav-card-link" to={lnk.href} aria-label={lnk.ariaLabel}>
+                  <button
+                    key={`${lnk.label}-${i}`}
+                    className="nav-card-link"
+                    aria-label={lnk.ariaLabel}
+                    onClick={(e) => handleLinkClick(lnk.href, e)}
+                    style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'inherit', font: 'inherit', padding: 0, textAlign: 'left', display: 'flex', alignItems: 'center', gap: '8px' }}
+                  >
                     <GoArrowUpRight className="nav-card-link-icon" aria-hidden="true" />
                     {lnk.label}
-                  </Link>
+                  </button>
                 ))}
               </div>
             </div>

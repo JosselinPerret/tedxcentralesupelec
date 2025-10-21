@@ -1,7 +1,7 @@
 import React from 'react';
 import GradientBlinds from './components/GradientBlinds';
 import CardNav from './components/CardNav';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Conferenciers from './pages/Conferenciers';
 import DevenirSpeaker from './pages/DevenirSpeaker';
 import Planning from './pages/Planning';
@@ -12,6 +12,7 @@ import tedxLogo from './tedx-logo-white.png';
 import './App.css';
 
 function App() {
+  const location = useLocation();
   const navItems = [
     {
       label: "Speakers",
@@ -42,6 +43,8 @@ function App() {
     }
   ];
 
+  const isTarifs = location.pathname === '/tarifs';
+
   return (
     <div className="app">
       <CardNav
@@ -54,23 +57,26 @@ function App() {
         buttonTextColor="#fff"
         ease="power3.out"
       />
-      
-      <div className="background-container">
-        <GradientBlinds
-          gradientColors={['#b34d4d', '#db0a0a']}
-          angle={20}
-          noise={0.5}
-          blindCount={12}
-          blindMinWidth={60}
-          spotlightRadius={0.5}
-          spotlightSoftness={1}
-          spotlightOpacity={1}
-          mouseDampening={0.3}
-          distortAmount={5}
-          shineDirection="left"
-          mixBlendMode="lighten"
-        />
-      </div>
+      {!isTarifs ? (
+        <div className="background-container">
+          <GradientBlinds
+            gradientColors={['#b34d4d', '#db0a0a']}
+            angle={20}
+            noise={0.5}
+            blindCount={12}
+            blindMinWidth={60}
+            spotlightRadius={0.5}
+            spotlightSoftness={1}
+            spotlightOpacity={1}
+            mouseDampening={0.3}
+            distortAmount={5}
+            shineDirection="left"
+            mixBlendMode="lighten"
+          />
+        </div>
+      ) : (
+        <div className="background-black" />
+      )}
       
       <div className="app-content">
         <main className="app-main">

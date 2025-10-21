@@ -1,0 +1,13 @@
+# Évite qu'Apache confonde des URLs avec MultiViews
+Options -MultiViews
+
+RewriteEngine On
+RewriteBase /
+
+# Laisse passer les vrais fichiers/dossiers (images, js, css…)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Tout le reste → index.html (React gère la route)
+RewriteRule . /index.html [L]
