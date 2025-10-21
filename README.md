@@ -1,6 +1,6 @@
 # TEDx Centralesupelec
 
-[![License: TED](https://img.shields.io/badge/License-TED-red.svg)](https://www.ted.com/about/our-organization/our-mission)
+[![License: TED](https://img.shields.io/badge/License-TED-red.svg)](https://www.ted.com/)
 
 A modern, interactive website for TEDx Centralesupelec - an independent TEDx event bringing inspiring ideas and innovation to the Centralesupélec community.
 

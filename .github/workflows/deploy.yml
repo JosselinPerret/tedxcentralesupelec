@@ -40,6 +40,5 @@ jobs:
           exclude: |                            # ne pas supprimer ces fichiers
             **/.git*
             **/.github/**
-            .htaccess
           dangerous-clean-slate: true           # vide le dossier avant chaque déploiement
           log-level: verbose                    # utile pour le debug
