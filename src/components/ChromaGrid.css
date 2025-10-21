@@ -26,11 +26,35 @@
   }
 }
 
+@media (max-width: 768px) {
+  /* Enlever l'effet spotlight sur tablette/mobile */
+  .chroma-card::before {
+    display: none;
+  }
+
+  /* Enlever le grayscale sur tablette/mobile */
+  .chroma-overlay,
+  .chroma-fade {
+    display: none;
+  }
+}
+
 @media (max-width: 480px) {
   .chroma-grid {
     grid-template-columns: 320px;
     gap: 0.75rem;
     padding: 1rem;
+  }
+
+  /* Enlever l'effet spotlight sur mobile */
+  .chroma-card::before {
+    display: none;
+  }
+
+  /* Enlever le grayscale sur mobile */
+  .chroma-overlay,
+  .chroma-fade {
+    display: none;
   }
 }
 
@@ -75,6 +99,7 @@
   z-index: 1;
   flex: 1;
   padding: 10px;
+  padding-bottom: 5px;
   box-sizing: border-box;
   background: transparent;
   transition: background 0.3s ease;
@@ -91,7 +116,7 @@
 .chroma-info {
   position: relative;
   z-index: 1;
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 1rem 0.75rem 1rem;
   color: #fff;
   font-family: system-ui, sans-serif;
   display: flex;

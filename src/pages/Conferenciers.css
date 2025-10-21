@@ -1,0 +1,72 @@
+.conferenciers-page {
+  padding: 24px;
+  padding-top: 0px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.conferenciers-title {
+  color: white;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.conferenciers-grid-container {
+  min-height: 800px;
+  position: relative;
+  pointer-events: auto;
+  width: 100%;
+}
+
+/* Tablettes et petits écrans */
+@media (max-width: 1124px) {
+  .conferenciers-page {
+    padding: 20px;
+    padding-top: 8px;
+  }
+
+  .conferenciers-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .conferenciers-grid-container {
+    min-height: 600px;
+  }
+}
+
+/* Smartphones */
+@media (max-width: 768px) {
+  .conferenciers-page {
+    padding: 16px;
+    padding-top: 60px;
+  }
+
+  .conferenciers-title {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .conferenciers-grid-container {
+    min-height: auto;
+  }
+}
+
+/* Petits smartphones */
+@media (max-width: 480px) {
+  .conferenciers-page {
+    padding: 12px;
+    padding-top: 40px;
+  }
+
+  .conferenciers-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .conferenciers-grid-container {
+    min-height: auto;
+  }
+}

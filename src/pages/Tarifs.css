@@ -1,0 +1,96 @@
+.tarifs-page {
+  padding: 24px;
+  padding-top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.tarifs-title {
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 2.5rem;
+  color: white;
+}
+
+.tarifs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  max-width: 800px;
+  width: 100%;
+  justify-items: center;
+}
+
+.tarif-card-wrapper {
+  position: relative;
+  perspective: none;
+}
+
+.tarif-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #E62B1E;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.tarif-card-inner {
+  perspective: none !important;
+}
+
+/* Tablettes et petits écrans */
+@media (max-width: 1124px) {
+  .tarifs-page {
+    padding: 20px;
+    padding-top: 8px;
+  }
+
+  .tarifs-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+}
+
+/* Smartphones */
+@media (max-width: 768px) {
+  .tarifs-page {
+    padding: 16px;
+    padding-top: 50px;
+  }
+
+  .tarifs-title {
+    font-size: 1.75rem;
+    margin-bottom: 16px;
+  }
+
+  .tarifs-grid {
+    gap: 20px;
+  }
+}
+
+/* Petits smartphones */
+@media (max-width: 480px) {
+  .tarifs-page {
+    padding: 12px;
+    padding-top: 40px;
+  }
+
+  .tarifs-title {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+
+  .tarifs-grid {
+    gap: 16px;
+  }
+}

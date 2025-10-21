@@ -1,14 +1,15 @@
 import React from 'react';
 import ProfileCard from '../components/ProfileCard';
 import { useNavigate } from 'react-router-dom';
+import './Tarifs.css';
 
 const Tarifs = () => {
   const navigate = useNavigate();
 
   return (
-    <div style={{ padding: 24, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <h1 style={{ marginBottom: 24 }}>Tarifs</h1>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 24, maxWidth: '800px', width: '100%', justifyItems: 'center' }}>
+    <div className="tarifs-page">
+      <h1 className="tarifs-title">Tarifs</h1>
+      <div className="tarifs-grid">
         <ProfileCard
           name="Classique"
           title="Exte : 8 € / CS : 4 €"
@@ -20,11 +21,11 @@ const Tarifs = () => {
           enableMobileTilt={false}
           onContactClick={() => navigate('/acheter')}
         />
-        <div style={{ position: 'relative', perspective: 'none' }}>
-          <div style={{ position: 'absolute', top: '-15px', left: '50%', transform: 'translateX(-50%)', backgroundColor: '#E62B1E', color: 'white', padding: '5px 15px', borderRadius: '20px', fontSize: '0.85rem', fontWeight: 'bold', zIndex: 10, pointerEvents: 'none' }}>
+        <div className="tarif-card-wrapper">
+          <div className="tarif-badge">
             Recommandé
           </div>
-          <div style={{ perspective: 'none !important' }}>
+          <div className="tarif-card-inner">
             <ProfileCard
               name="VIP"
               title="Exte : 15 € / CS : 8 €"

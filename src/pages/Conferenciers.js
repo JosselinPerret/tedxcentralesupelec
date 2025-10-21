@@ -1,5 +1,6 @@
 import React from 'react';
 import ChromaGrid from '../components/ChromaGrid';
+import "./Conferenciers.css";
 
 const Conferenciers = () => {
   const speakers = [
