@@ -51,6 +51,14 @@ const Conferenciers = () => {
       borderColor: "#E62B1E",
       gradient: "linear-gradient(155deg, #E62B1E, #000)",
       url: "#"
+    },
+    {
+      image: "/profile_pic.png",
+      title: "À venir...",
+      subtitle: "Intervenant TEDx",
+      borderColor: "#E62B1E",
+      gradient: "linear-gradient(155deg, #E62B1E, #000)",
+      url: "#"
     }
   ];
 
