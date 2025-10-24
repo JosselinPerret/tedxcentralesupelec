@@ -79,7 +79,7 @@ const DevenirSpeaker = () => {
         <Step>
           <h2>Devenir Speaker pour l'édition 2026</h2>
           <p>Bienvenue! Nous sommes heureux de votre intérêt pour devenir orateur.</p>
-          <p style={{ marginTop: '1.5rem' }}>Remplissez ce formulaire en 4 étapes pour nous en savoir plus sur vous et votre présentation.</p>
+          <p style={{ marginTop: '1.5rem' }}>Remplissez ce formulaire en 4 étapes pour en savoir plus sur vous et votre présentation.</p>
         </Step>
 
         {/* Step 2: Basic Info */}
@@ -190,7 +190,7 @@ const DevenirSpeaker = () => {
               {formData.message || '-'}
             </p>
           </div>
-          <p style={{ marginTop: '1.5rem', color: '#dc2626' }}>
+          <p style={{ marginTop: '1.5rem', color: '#ffffffff' }}>
             {isSubmitting ? 'Envoi en cours...' : 'Cliquez sur "Terminer" pour soumettre votre candidature'}
           </p>
         </Step>
