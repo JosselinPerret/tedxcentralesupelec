@@ -72,7 +72,10 @@ $filename = $submissionsDir . '/speaker_' . time() . '_' . bin2hex(random_bytes(
 file_put_contents($filename, json_encode($formData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
 // Option 2: Send email notification
-$to = 'josselin.perret@student-cs.fr'; // Change this to your email
+$primaryEmail = 'josselin.perret@student-cs.fr';
+$secondaryEmail = 'darius.hochart@student-cs.fr';
+$recipients = $primaryEmail . ',' . $secondaryEmail;
+
 $subject = 'Nouvelle demande de speaker - ' . $prenom . ' ' . $nom;
 $emailMessage = "
 Nouvelle candidature speaker reçue:
@@ -91,8 +94,8 @@ Reçu le: " . date('d/m/Y à H:i:s');
 $headers = "Content-Type: text/plain; charset=UTF-8\r\n";
 $headers .= "From: noreply@example.com\r\n";
 
-// Uncomment to send email
-mail($to, $subject, $emailMessage, $headers);
+// Send email to both recipients
+mail($recipients, $subject, $emailMessage, $headers);
 
 // Return success response
 http_response_code(200);
