@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.25d0980f.css",
-    "main.js": "/static/js/main.82672595.js",
+    "main.css": "/static/css/main.185cf210.css",
+    "main.js": "/static/js/main.024d4810.js",
     "static/media/tedx-logo-white.png": "/static/media/tedx-logo-white.27007d7b88937268f0fa.png",
     "index.html": "/index.html",
-    "main.25d0980f.css.map": "/static/css/main.25d0980f.css.map",
-    "main.82672595.js.map": "/static/js/main.82672595.js.map"
+    "main.185cf210.css.map": "/static/css/main.185cf210.css.map",
+    "main.024d4810.js.map": "/static/js/main.024d4810.js.map"
   },
   "entrypoints": [
-    "static/css/main.25d0980f.css",
-    "static/js/main.82672595.js"
+    "static/css/main.185cf210.css",
+    "static/js/main.024d4810.js"
   ]
 }
