@@ -5,10 +5,17 @@
   box-sizing: border-box;
 }
 
+/* Mobile/Tablette - apply large top padding */
+@media (max-width: 1124px) {
+  .conferenciers-page {
+    padding-top: 70px;
+  }
+}
+
 /* Bureau / PC */
 @media (min-width: 1125px) {
   .conferenciers-page {
-    margin-top: -4rem;
+    margin-top: 6rem;
   }
 }
 

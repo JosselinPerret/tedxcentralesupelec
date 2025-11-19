@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Stepper, { Step } from '../components/Stepper';
 import { submitSpeakerForm } from '../services/api';
+import './DevenirSpeaker.css';
 
 const DevenirSpeaker = () => {
   const [formData, setFormData] = useState({
@@ -53,20 +54,7 @@ const DevenirSpeaker = () => {
   };
 
   return (
-    <>
-      <style>{`
-        @media (max-width: 1124px) {
-          .devenir-speaker-container {
-            margin-top: 0 !important;
-          }
-        }
-        @media (min-width: 1125px) {
-          .devenir-speaker-container {
-            margin-top: -4rem !important;
-          }
-        }
-      `}</style>
-      <div className="devenir-speaker-container" style={{ padding: 24, paddingBottom: 0 }}>
+    <div className="devenir-speaker-container" style={{ padding: 24, paddingBottom: 0 }}>
       
       {submitStatus && (
         <div style={{
@@ -208,8 +196,7 @@ const DevenirSpeaker = () => {
           </p>
         </Step>
       </Stepper>
-      </div>
-    </>
+    </div>
   );
 };
 

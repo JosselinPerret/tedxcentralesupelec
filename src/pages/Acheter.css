@@ -1,0 +1,17 @@
+.acheter-header {
+  margin-top: 0 !important;
+}
+
+/* Mobile/Tablette - apply large top padding */
+@media (max-width: 1124px) {
+  .acheter-header {
+    padding-top: 70px !important;
+  }
+}
+
+/* Bureau / PC */
+@media (min-width: 1125px) {
+  .acheter-header {
+    margin-top: 4rem !important;
+  }
+}

@@ -1,0 +1,17 @@
+.devenir-speaker-container {
+  margin-top: 0 !important;
+}
+
+/* Mobile/Tablette - apply large top padding */
+@media (max-width: 1124px) {
+  .devenir-speaker-container {
+    padding-top: 120px !important;
+  }
+}
+
+/* Bureau / PC */
+@media (min-width: 1125px) {
+  .devenir-speaker-container {
+    margin-top: 4rem !important;
+  }
+}

@@ -1,0 +1,17 @@
+.planning-container {
+  margin-top: 0 !important;
+}
+
+/* Mobile/Tablette - apply large top padding */
+@media (max-width: 1124px) {
+  .planning-container {
+    padding-top: 120px !important;
+  }
+}
+
+/* Bureau / PC */
+@media (min-width: 1125px) {
+  .planning-container {
+    margin-top: 4rem !important;
+  }
+}

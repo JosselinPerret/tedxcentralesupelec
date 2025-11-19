@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Acheter.css';
 
 const Acheter = () => {
   const navigate = useNavigate();
-  const isDesktop = window.innerWidth > 1124;
 
   const handleBilletterieClick = () => {
     window.open(
@@ -13,8 +13,8 @@ const Acheter = () => {
   };
 
   return (
-    <div style={{ marginTop: isDesktop ? '-8rem' : '0rem' }}>
-      <div style={{ padding: '2rem', marginLeft: 'auto', marginRight: 'auto', maxWidth: '800px' }}>
+    <div>
+      <div style={{ padding: '2rem', marginLeft: 'auto', marginRight: 'auto', maxWidth: '800px' }} className="acheter-header">
       <h1 style={{ fontSize: '2.5rem', marginBottom: '2rem', color: '#fff' }}>Réserve ta place !</h1>
       
       <div style={{

@@ -35,10 +35,18 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 2rem;
-  padding-top: 12rem;
+  padding-top: 18rem;
   pointer-events: none;
+}
+
+@media (min-width: 1125px) {
+  .app-content {
+    justify-content: center;
+    padding-top: 4rem;
+    margin-top: -4rem;
+  }
 }
 
 .app-header {
@@ -84,6 +92,7 @@
 
 .hero-section {
   margin-bottom: 4rem;
+  padding-top: 4rem;
 }
 
 .hero-title {

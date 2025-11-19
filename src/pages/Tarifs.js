@@ -6,7 +6,6 @@ import './Tarifs.css';
 const Tarifs = () => {
   const navigate = useNavigate();
   const [isExternal, setIsExternal] = useState(false);
-  const isDesktop = window.innerWidth > 1124;
 
   const tiersData = {
     cs: [
@@ -84,8 +83,8 @@ const Tarifs = () => {
   const currentTiers = isExternal ? tiersData.external : tiersData.cs;
 
   return (
-    <div style={{ marginTop: isDesktop ? '-8rem' : '0rem' }}>
-      <div style={{ padding: '2rem', marginLeft: 'auto', marginRight: 'auto', maxWidth: '900px', textAlign: 'center', paddingBottom: '1rem' }}>
+    <div>
+      <div style={{ padding: '2rem', marginLeft: 'auto', marginRight: 'auto', maxWidth: '900px', textAlign: 'center', paddingBottom: '1rem' }} className="tarifs-header">
         <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: '#fff' }}>Tarifs</h1>
         <p style={{ fontSize: '1.1rem', opacity: 0.8, color: '#fff', marginBottom: '1.5rem' }}>
           Billetterie TEDx 2025 - Réserve ta place dès maintenant !
