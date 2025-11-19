@@ -4,9 +4,11 @@ import ScrollReveal from '../components/ScrollReveal';
 
 const Informations = () => {
   const navigate = useNavigate();
+  const isDesktop = window.innerWidth > 1124;
 
   return (
-    <div style={{ padding: '2rem', paddingTop: '4rem', maxWidth: '900px', margin: '0 auto' }}>
+    <div style={{ marginTop: isDesktop ? '-8rem' : '0rem' }}>
+      <div style={{ padding: '2rem', marginLeft: 'auto', marginRight: 'auto', maxWidth: '900px' }}>
       <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: '#fff' }}>L'Effet Tunnel 🔥</h1>
       <p style={{ fontSize: '1.1rem', opacity: 0.9, color: '#fff', marginBottom: '3rem', lineHeight: '1.6' }}>
         Franchir les limites impossibles
@@ -73,6 +75,7 @@ const Informations = () => {
         >
           Réserver ta place →
         </button>
+      </div>
       </div>
     </div>
   );

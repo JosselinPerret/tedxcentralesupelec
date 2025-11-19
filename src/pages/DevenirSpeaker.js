@@ -55,9 +55,14 @@ const DevenirSpeaker = () => {
   return (
     <>
       <style>{`
-        @media (max-width: 768px) {
+        @media (max-width: 1124px) {
           .devenir-speaker-container {
-            padding-top: 4rem !important;
+            margin-top: 0 !important;
+          }
+        }
+        @media (min-width: 1125px) {
+          .devenir-speaker-container {
+            margin-top: -4rem !important;
           }
         }
       `}</style>

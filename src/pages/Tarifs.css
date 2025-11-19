@@ -113,6 +113,13 @@
   transform: translateY(0px);
 }
 
+/* Bureau / PC */
+@media (min-width: 1125px) {
+  .tarifs-page {
+    padding-top: 0px;
+  }
+}
+
 /* Tablettes et petits écrans */
 @media (max-width: 1124px) {
   .tarifs-page {

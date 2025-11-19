@@ -5,6 +5,13 @@
   box-sizing: border-box;
 }
 
+/* Bureau / PC */
+@media (min-width: 1125px) {
+  .conferenciers-page {
+    margin-top: -4rem;
+  }
+}
+
 .conferenciers-title {
   color: white;
   margin-top: 0;

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Acheter = () => {
   const navigate = useNavigate();
+  const isDesktop = window.innerWidth > 1124;
 
   const handleBilletterieClick = () => {
     window.open(
@@ -12,7 +13,8 @@ const Acheter = () => {
   };
 
   return (
-    <div style={{ padding: '2rem', paddingTop: '4rem', maxWidth: '800px', margin: '0 auto' }}>
+    <div style={{ marginTop: isDesktop ? '-8rem' : '0rem' }}>
+      <div style={{ padding: '2rem', marginLeft: 'auto', marginRight: 'auto', maxWidth: '800px' }}>
       <h1 style={{ fontSize: '2.5rem', marginBottom: '2rem', color: '#fff' }}>Réserve ta place !</h1>
       
       <div style={{
@@ -87,6 +89,7 @@ const Acheter = () => {
         <p style={{ marginTop: 0, fontSize: '0.95rem' }}>
           <strong>⏳ Attention :</strong> Les places sont limitées ! Réserve dès maintenant pour ne pas rater cet événement exceptionnel.
         </p>
+      </div>
       </div>
     </div>
   );
