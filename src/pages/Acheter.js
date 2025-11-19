@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Acheter = () => {
+  const navigate = useNavigate();
+
   const handleBilletterieClick = () => {
     window.open(
       'https://www.helloasso.com/associations/genius-centralesupelec/evenements/billetterie-tedxcs-2025-2026',
@@ -24,26 +27,54 @@ const Acheter = () => {
           Billets disponibles sur <strong>HelloAsso</strong><br />
           Clique sur le bouton ci-dessous pour accéder à la billetterie
         </p>
-        <button
-          onClick={handleBilletterieClick}
-          style={{
-            display: 'inline-block',
-            backgroundColor: '#dc2626',
-            color: '#fff',
-            padding: '1rem 2rem',
-            borderRadius: '6px',
-            border: 'none',
-            fontWeight: 'bold',
-            fontSize: '1.1rem',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease',
-            pointerEvents: 'auto'
-          }}
-          onMouseOver={(e) => e.target.style.backgroundColor = '#c41e0f'}
-          onMouseOut={(e) => e.target.style.backgroundColor = '#dc2626'}
-        >
-          🎫 Accéder à la billetterie
-        </button>
+        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <button
+            onClick={() => navigate('/tarifs')}
+            style={{
+              display: 'inline-block',
+              backgroundColor: 'transparent',
+              color: '#dc2626',
+              padding: '1rem 2rem',
+              borderRadius: '6px',
+              border: '2px solid #dc2626',
+              fontWeight: 'bold',
+              fontSize: '1.1rem',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              pointerEvents: 'auto'
+            }}
+            onMouseOver={(e) => {
+              e.target.style.backgroundColor = '#dc2626';
+              e.target.style.color = '#fff';
+            }}
+            onMouseOut={(e) => {
+              e.target.style.backgroundColor = 'transparent';
+              e.target.style.color = '#dc2626';
+            }}
+          >
+            💰 Voir les tarifs
+          </button>
+          <button
+            onClick={handleBilletterieClick}
+            style={{
+              display: 'inline-block',
+              backgroundColor: '#dc2626',
+              color: '#fff',
+              padding: '1rem 2rem',
+              borderRadius: '6px',
+              border: 'none',
+              fontWeight: 'bold',
+              fontSize: '1.1rem',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              pointerEvents: 'auto'
+            }}
+            onMouseOver={(e) => e.target.style.backgroundColor = '#c41e0f'}
+            onMouseOut={(e) => e.target.style.backgroundColor = '#dc2626'}
+          >
+            🎫 Accéder à la billetterie
+          </button>
+        </div>
       </div>
 
       <div style={{
