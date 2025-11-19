@@ -53,7 +53,15 @@ const DevenirSpeaker = () => {
   };
 
   return (
-    <div style={{ padding: 24, paddingBottom: 0 }}>
+    <>
+      <style>{`
+        @media (max-width: 768px) {
+          .devenir-speaker-container {
+            padding-top: 4rem !important;
+          }
+        }
+      `}</style>
+      <div className="devenir-speaker-container" style={{ padding: 24, paddingBottom: 0 }}>
       
       {submitStatus && (
         <div style={{
@@ -195,7 +203,8 @@ const DevenirSpeaker = () => {
           </p>
         </Step>
       </Stepper>
-    </div>
+      </div>
+    </>
   );
 };
 

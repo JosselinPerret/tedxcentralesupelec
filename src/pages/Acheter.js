@@ -12,7 +12,7 @@ const Acheter = () => {
   };
 
   return (
-    <div style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
+    <div style={{ padding: '2rem', paddingTop: '4rem', maxWidth: '800px', margin: '0 auto' }}>
       <h1 style={{ fontSize: '2.5rem', marginBottom: '2rem', color: '#fff' }}>Réserve ta place !</h1>
       
       <div style={{
